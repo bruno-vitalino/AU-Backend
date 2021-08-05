@@ -19,15 +19,12 @@ class AppDatabaseManager {
     ])
   }
 
-  dbUptade(update) {
-    return db.query("UPDATE animais SETanimais (nome, especie, porte, sexo, situacao, idade, endereco) VALUES (?, ?, ?, ?, ?, ?, ?)", [
-      update.nome,
-      update.especie,
-      update.porte,
-      update.sexo,
-      update.situacao,
-      update.idade,
-      update.endereco
+  
+  
+  dbUptade(update, id) {
+
+    return db.query(`UPDATE animais SET situacao = (?) WHERE id_animais =${id}`, [
+      update.situacao,      
     ])
   }
 }
